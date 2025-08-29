@@ -1,3 +1,13 @@
+body {
+  background-image: url('/images/kobrat-bg.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
 /* Otetaan otsikoihin Roboto Slab */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif;
