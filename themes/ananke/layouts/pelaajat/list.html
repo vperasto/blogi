@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <header>
+    <h1 class="page-title">Pelaajat</h1>
+  </header>
+
+  <!-- Nykyisen kauden pelaajat -->
+  <h2>Kausi 2024-2025</h2>
+  <section class="pelaaja-lista">
+    {{ $nykyiset := where .Pages "Params.kausi" "2024-2025" }}
+    {{ range $nykyiset.ByParam "pelinumero" }}
+      <div class="pelaaja-kortti">
+        <h3><a href="{{ .Permalink }}">#{{ .Params.pelinumero }} {{ .Title }}</a></h3>
+        <p>{{ .Params.pelipaikka }}</p>
+      </div>
+    {{ end }}
+  </section>
+
+  <!-- Entiset pelaajat -->
+  <h2>Entiset pelaajat</h2>
+  <section class="pelaaja-lista">
+    {{ $entiset := where .Pages "Params.kausi" "Entinen pelaaja" }}
+    {{ range $entiset.ByParam "sukunimi" }}
+      <div class="pelaaja-kortti">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Params.kausi }}</p>
+      </div>
+    {{ end }}
+  </section>
+
+{{ end }}

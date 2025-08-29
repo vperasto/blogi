@@ -1,0 +1,23 @@
+{{ define "main" }}
+  <article class="post">
+    <header>
+      <h1 class="post-title">{{ .Title }}</h1>
+      <h2>#{{ .Params.pelinumero }}</h2>
+    </header>
+    
+    {{ if .Params.kuva }}
+      <img src="{{ .Params.kuva | relURL }}" alt="Kuva pelaajasta {{ .Title }}" />
+    {{ end }}
+
+    <ul>
+      <li><strong>Pelipaikka:</strong> {{ .Params.pelipaikka }}</li>
+      <li><strong>Pituus:</strong> {{ .Params.pituus }} cm</li>
+      <li><strong>Syntymäaika:</strong> {{ .Params.syntymaaika.Format "2.1.2006" }}</li>
+      <li><strong>Kausi:</strong> {{ .Params.kausi }}</li>
+    </ul>
+
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

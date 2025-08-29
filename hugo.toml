@@ -7,3 +7,8 @@ theme = "ananke"
   name = "Tietoa Seurasta"
   url = "/tietoa-seurasta/"
   weight = 2
+
+[[menu.main]]
+  name = "Pelaajat"
+  url = "/pelaajat/"
+  weight = 3

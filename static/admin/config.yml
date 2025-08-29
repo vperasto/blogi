@@ -16,6 +16,7 @@ collections:
       - {label: "Otsikko", name: "title", widget: "string"}
       - {label: "Julkaisupäivä", name: "date", widget: "datetime"}
       - {label: "Leipäteksti", name: "body", widget: "markdown"}
+
   # sivut
   - name: "pages"
     label: "Sivut"
@@ -26,3 +27,20 @@ collections:
         fields:
           - {label: "Otsikko", name: "title", widget: "string"}
           - {label: "Leipäteksti", name: "body", widget: "markdown"}
+
+  # pelaajat
+  - name: "pelaajat"
+    label: "Pelaajat"
+    folder: "content/pelaajat"
+    create: true
+    slug: "{{pelipaikka}}-{{sukunimi}}-{{etunimi}}"
+    fields:
+      - {label: "Etunimi", name: "etunimi", widget: "string"}
+      - {label: "Sukunimi", name: "sukunimi", widget: "string"}
+      - {label: "Pelinumero", name: "pelinumero", widget: "number", required: false}
+      - {label: "Pelipaikka", name: "pelipaikka", widget: "string", required: false}
+      - {label: "Syntymäaika", name: "syntymaaika", widget: "date", required: false}
+      - {label: "Pituus", name: "pituus", widget: "string", required: false}
+      - {label: "Pelaajan kuva", name: "kuva", widget: "image", required: false}
+      - {label: "Kausi", name: "kausi", widget: "string", hint: "Esim. 2024-2025 tai Entinen pelaaja"}
+      - {label: "Esittelyteksti", name: "body", widget: "markdown"}
