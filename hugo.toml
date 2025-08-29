@@ -12,3 +12,6 @@ theme = "ananke"
   name = "Pelaajat"
   url = "/pelaajat/"
   weight = 3
+
+[params]
+  mainSections = ["posts"]
