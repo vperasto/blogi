@@ -1,6 +1,6 @@
 backend:
-  name: vperasto/blogi
-  branch: main # Tai master, riippuen reposi päähaarasta
+  name: git-gateway
+  branch: main # Tai master, jos se on reposi päähaara
 
 media_folder: "static/images/uploads" # Mihin kuvat tallennetaan
 public_folder: "/images/uploads" # Miten kuviin viitataan sivuilla
