@@ -1,0 +1,14 @@
+/* Otetaan otsikoihin Roboto Slab */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+/* Otetaan leipätekstiin Open Sans */
+body, p, li, a {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Voit käyttää Merriweatheriä vaikka lainauksissa tai erityiskohdissa */
+.erikoisteksti {
+  font-family: 'Merriweather', serif;
+}
