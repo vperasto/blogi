@@ -42,5 +42,5 @@ collections:
       - {label: "Syntymäaika", name: "syntymaaika", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, required: false}
       - {label: "Pituus", name: "pituus", widget: "string", required: false}
       - {label: "Pelaajan kuva", name: "kuva", widget: "image", required: false}
-      - {label: "Kausi", name: "kausi", widget: "string", hint: "Esim. 2024-2025 tai Entinen pelaaja"}
+      - {label: "Kausi", name: "kausi", widget: "select", options: ["2024-2025", "2023-2024", "Entinen pelaaja"]}
       - {label: "Esittelyteksti", name: "body", widget: "markdown"}
