@@ -1,0 +1,17 @@
+backend:
+  name: vperasto/blogi
+  branch: main # Tai master, riippuen reposi päähaarasta
+
+media_folder: "static/images/uploads" # Mihin kuvat tallennetaan
+public_folder: "/images/uploads" # Miten kuviin viitataan sivuilla
+
+collections:
+  - name: "post"
+    label: "Uutiset"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Otsikko", name: "title", widget: "string"}
+      - {label: "Julkaisupäivä", name: "date", widget: "datetime"}
+      - {label: "Leipäteksti", name: "body", widget: "markdown"}
