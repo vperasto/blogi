@@ -6,7 +6,7 @@ pelipaikka: ""
 syntymaaika: 1977-09-22
 pituus: "179"
 kuva: ""
-kausi: 2024-2025
+kausi: 2023-2024
 ---
 Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. 
 
