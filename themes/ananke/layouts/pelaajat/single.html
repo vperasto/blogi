@@ -12,7 +12,9 @@
     <ul>
       <li><strong>Pelipaikka:</strong> {{ .Params.pelipaikka }}</li>
       <li><strong>Pituus:</strong> {{ .Params.pituus }} cm</li>
-      <li><strong>Syntymäaika:</strong> {{ .Params.syntymaaika.Format "2.1.2006" }}</li>
+      {{ with .Params.syntymaaika }}
+      <li><strong>Syntymäaika:</strong> {{ (time .).Format "2.1.2006" }}</li>
+      {{ end }}
       <li><strong>Kausi:</strong> {{ .Params.kausi }}</li>
     </ul>
 
