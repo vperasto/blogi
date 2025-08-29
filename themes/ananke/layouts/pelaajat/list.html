@@ -4,11 +4,15 @@
 
     {{ $pelaajat := .Site.GetPage "section" "pelaajat" }}
     
+    <!-- MÄÄRITTELE NYKYINEN KAUSI TÄSSÄ. HELPPO PÄIVITTÄÄ TULEVAISUUDESSA. -->
+    {{ $nykyinen_kausi := "2024-2025" }}
+
     <!-- Nykyisen kauden pelaajat -->
     <section class="w-100 mw8 center">
-      <h2 class="f2 b helveticas tc">Kausi 2024-2025</h2>
+      <h2 class="f2 b helveticas tc">Kausi {{ $nykyinen_kausi }}</h2>
       <div class="cf">
-        {{ $nykyiset := where $pelaajat.Pages "Params.kausi" "2024-2025" }}
+        {{/* Haetaan pelaajat, joiden kausi TÄSMÄÄ nykyiseen kauteen */}}
+        {{ $nykyiset := where $pelaajat.Pages "Params.kausi" $nykyinen_kausi }}
         {{ range $nykyiset.ByParam "pelinumero" }}
           <div class="fl w-100 w-50-ns pa2">
             <article class="ba b--black-10">
@@ -28,9 +32,10 @@
 
     <!-- Entiset pelaajat -->
     <section class="w-100 mw8 center mt4">
-      <h2 class="f2 b helveticas tc">Entiset pelaajat</h2>
+      <h2 class="f2 b helveticas tc">Aiemmat kaudet</h2>
       <div class="cf">
-        {{ $entiset := where $pelaajat.Pages "Params.kausi" "Entinen pelaaja" }}
+        {{/* TÄMÄ ON MUUTOS: Haetaan pelaajat, joiden kausi EI OLE SAMA KUIN nykyinen kausi */}}
+        {{ $entiset := where $pelaajat.Pages "Params.kausi" "ne" $nykyinen_kausi }}
         {{ range $entiset.ByParam "sukunimi" }}
           <div class="fl w-100 w-50-ns pa2">
             <article class="ba b--black-10">
@@ -38,12 +43,12 @@
                 <a href="{{ .Permalink }}" class="db link dim">
                   <h3 class="f3 mb1">{{ .Params.etunimi }} {{ .Params.sukunimi }}</h3>
                 </a>
-                <p class="f5 mb0">{{ .Params.kausi }}</p>
+                <p class="f5 mb0">Kausi: {{ .Params.kausi }}</p>
               </div>
             </article>
           </div>
         {{ else }}
-          <p class="tc">Ei entisiä pelaajia listattuna.</p>
+          <p class="tc">Ei aiempien kausien pelaajia listattuna.</p>
         {{ end }}
       </div>
     </section>
