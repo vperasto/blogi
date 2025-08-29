@@ -1,37 +1,52 @@
 {{ define "main" }}
-  <header>
-    <h1 class="page-title">Pelaajat</h1>
-  </header>
+  <div class="pa3 pa4-ns">
+    <h1 class="f1 athelas tc">{{ .Title }}</h1>
 
-  <!-- Haetaan kaikki pelaajat ensin yhteen muuttujaan -->
-  {{ $pelaajat := .Site.GetPage "section" "pelaajat" }}
-
-  <!-- Nykyisen kauden pelaajat -->
-  <h2>Kausi 2024-2025</h2>
-  <section class="pelaaja-lista">
-    {{ $nykyiset := where $pelaajat.Pages "Params.kausi" "2024-2025" }}
-    {{ range $nykyiset.ByParam "pelinumero" }}
-      <div class="pelaaja-kortti">
-        <h3><a href="{{ .Permalink }}">#{{ .Params.pelinumero }} {{ .Title }}</a></h3>
-        <p>{{ .Params.pelipaikka }}</p>
+    {{ $pelaajat := .Site.GetPage "section" "pelaajat" }}
+    
+    <!-- Nykyisen kauden pelaajat -->
+    <section class="w-100 mw8 center">
+      <h2 class="f2 b helveticas tc">Kausi 2024-2025</h2>
+      <div class="cf">
+        {{ $nykyiset := where $pelaajat.Pages "Params.kausi" "2024-2025" }}
+        {{ range $nykyiset.ByParam "pelinumero" }}
+          <div class="fl w-100 w-50-ns pa2">
+            <article class="ba b--black-10">
+              <div class="w-100 pa3">
+                <a href="{{ .Permalink }}" class="db link dim">
+                  <h3 class="f3 mb1">#{{ .Params.pelinumero }} {{ .Params.etunimi }} {{ .Params.sukunimi }}</h3>
+                </a>
+                <p class="f5 mb0">{{ .Params.pelipaikka }}</p>
+              </div>
+            </article>
+          </div>
+        {{ else }}
+          <p class="tc">Ei pelaajia tällä kaudella.</p>
+        {{ end }}
       </div>
-    {{ else }}
-      <p>Ei pelaajia tällä kaudella.</p>
-    {{ end }}
-  </section>
+    </section>
 
-  <!-- Entiset pelaajat -->
-  <h2>Entiset pelaajat</h2>
-  <section class="pelaaja-lista">
-    {{ $entiset := where $pelaajat.Pages "Params.kausi" "Entinen pelaaja" }}
-    {{ range $entiset.ByParam "sukunimi" }}
-      <div class="pelaaja-kortti">
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Params.kausi }}</p>
+    <!-- Entiset pelaajat -->
+    <section class="w-100 mw8 center mt4">
+      <h2 class="f2 b helveticas tc">Entiset pelaajat</h2>
+      <div class="cf">
+        {{ $entiset := where $pelaajat.Pages "Params.kausi" "Entinen pelaaja" }}
+        {{ range $entiset.ByParam "sukunimi" }}
+          <div class="fl w-100 w-50-ns pa2">
+            <article class="ba b--black-10">
+              <div class="w-100 pa3">
+                <a href="{{ .Permalink }}" class="db link dim">
+                  <h3 class="f3 mb1">{{ .Params.etunimi }} {{ .Params.sukunimi }}</h3>
+                </a>
+                <p class="f5 mb0">{{ .Params.kausi }}</p>
+              </div>
+            </article>
+          </div>
+        {{ else }}
+          <p class="tc">Ei entisiä pelaajia listattuna.</p>
+        {{ end }}
       </div>
-    {{ else }}
-      <p>Ei entisiä pelaajia listattuna.</p>
-    {{ end }}
-  </section>
-
+    </section>
+    
+  </div>
 {{ end }}
