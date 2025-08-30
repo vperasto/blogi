@@ -3,11 +3,15 @@
   <h1 class="f1 athelas tc">{{ .Title | default "Otteluohjelma" }}</h1>
 
   {{ $ottelut := where .Site.RegularPages "Section" "ottelut" }}
+  
+  {{/* Määritellään tämän päivän päivämäärä ilman kellonaikaa */}}
+  {{ $tanaan := now.Format "2006-01-02" }}
 
   <!-- TULEVAT OTTELUT -->
   <section class="w-100 mw8 center mt4">
     <h2 class="f2 b helveticas tc">Tulevat ottelut</h2>
-    {{ $tulevat := where $ottelut ".Params.paivamaara" "ge" now }}
+    {{/* Vertaa ottelun päivämäärää tähän päivään */}}
+    {{ $tulevat := where $ottelut ".Params.paivamaara" "ge" $tanaan }}
     {{ range $tulevat.ByParam "paivamaara" }}
       <article class="ba b--black-10 mv3 pa3">
         <p class="f6 b">{{ .Params.paivamaara.Format "Maanantai 2.1.2006" }} klo {{ .Params.kellonaika }}</p>
@@ -22,7 +26,7 @@
   <!-- MENNEET OTTELUT -->
   <section class="w-100 mw8 center mt5">
     <h2 class="f2 b helveticas tc">Pelatut ottelut ja tulokset</h2>
-    {{ $menneet := where $ottelut ".Params.paivamaara" "lt" now }}
+    {{ $menneet := where $ottelut ".Params.paivamaara" "lt" $tanaan }}
     {{ range ($menneet.ByParam "paivamaara").Reverse }}
       <article class="ba b--black-10 mv3 pa3">
         <p class="f6">{{ .Params.paivamaara.Format "2.1.2006" }}</p>
