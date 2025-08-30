@@ -15,3 +15,8 @@ theme = "ananke"
 
 [params]
   mainSections = ["posts"]
+
+[[menu.main]]
+name = "Ottelut"
+url = "/ottelut/"
+weight = 1 # Asetetaan ensimmäiseksi valikossa

@@ -44,3 +44,18 @@ collections:
       - {label: "Pelaajan kuva", name: "kuva", widget: "image", required: false}
       - {label: "Kausi", name: "kausi", widget: "select", options: ["2024-2025", "2023-2024", "Entinen pelaaja"]}
       - {label: "Esittelyteksti", name: "body", widget: "markdown"}
+
+      # ottelut
+      - name: "ottelut"
+        label: "Ottelut"
+        folder: "content/ottelut"
+        create: true
+        slug: "{{fields.paivamaara}}-{{fields.kotijoukkue}}-vs-{{fields.vierasjoukkue}}"
+        fields:
+      - {label: "Ottelun päivämäärä", name: "paivamaara", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false}
+      - {label: "Kellonaika", name: "kellonaika", widget: "string", hint: "Esim. 18:30"}
+      - {label: "Kotijoukkue", name: "kotijoukkue", widget: "string"}
+      - {label: "Vierasjoukkue", name: "vierasjoukkue", widget: "string"}
+      - {label: "Onko kotipeli?", name: "onko_kotipeli", widget: "boolean", default: true}
+      - {label: "Pelipaikka", name: "pelipaikka", widget: "string"}
+      - {label: "Lopputulos", name: "tulos", widget: "string", required: false, hint: "Täytetään ottelun jälkeen, esim. 98-92"}
