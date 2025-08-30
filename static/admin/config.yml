@@ -1,12 +1,12 @@
 backend:
   name: git-gateway
-  branch: main # Tai master, jos se on reposi päähaara
+  branch: main
 
-media_folder: "static/images/uploads" # Mihin kuvat tallennetaan
-public_folder: "/images/uploads" # Miten kuviin viitataan sivuilla
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  # uutiset / tiedotteet jne...
+  # KOKOELMA 1: Uutiset
   - name: "post"
     label: "Uutiset"
     folder: "content/posts"
@@ -17,7 +17,7 @@ collections:
       - {label: "Julkaisupäivä", name: "date", widget: "datetime"}
       - {label: "Leipäteksti", name: "body", widget: "markdown"}
 
-  # sivut
+  # KOKOELMA 2: Sivut
   - name: "pages"
     label: "Sivut"
     files:
@@ -27,8 +27,9 @@ collections:
         fields:
           - {label: "Otsikko", name: "title", widget: "string"}
           - {label: "Leipäteksti", name: "body", widget: "markdown"}
+      # Voit lisätä muita yksittäisiä sivuja tänne, esim. Yhteistyökumppanit
 
-  # pelaajat
+  # KOKOELMA 3: Pelaajat
   - name: "pelaajat"
     label: "Pelaajat"
     folder: "content/pelaajat"
@@ -45,13 +46,13 @@ collections:
       - {label: "Kausi", name: "kausi", widget: "select", options: ["2024-2025", "2023-2024", "Entinen pelaaja"]}
       - {label: "Esittelyteksti", name: "body", widget: "markdown"}
 
-      # ottelut
-      - name: "ottelut"
-        label: "Ottelut"
-        folder: "content/ottelut"
-        create: true
-        slug: "{{fields.paivamaara}}-{{fields.kotijoukkue}}-vs-{{fields.vierasjoukkue}}"
-        fields:
+  # KOKOELMA 4: Ottelut
+  - name: "ottelut"
+    label: "Ottelut"
+    folder: "content/ottelut"
+    create: true
+    slug: "{{fields.paivamaara}}-{{fields.kotijoukkue}}-vs-{{fields.vierasjoukkue}}"
+    fields:
       - {label: "Ottelun päivämäärä", name: "paivamaara", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false}
       - {label: "Kellonaika", name: "kellonaika", widget: "string", hint: "Esim. 18:30"}
       - {label: "Kotijoukkue", name: "kotijoukkue", widget: "string"}
