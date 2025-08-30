@@ -6,8 +6,6 @@ body {
   background-size: cover;
 }
 
-
-
 /* Otetaan otsikoihin Roboto Slab */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif;
@@ -22,3 +20,29 @@ body, p, li, a {
 .erikoisteksti {
   font-family: 'Merriweather', serif;
 }
+
+/*
+ * PÄÄSISÄLLÖN TAUSTA JA ASETTELU
+ */
+
+/* Kohdistetaan tyyli <main>-elementin sisällä olevaan <article>-elementtiin.
+   Tämä kattaa uutiset, pelaajat ja muut yksittäiset sivut. */
+main article {
+  background-color: white; /* Asetetaan taustaväri valkoiseksi */
+  padding: 2rem;           /* Lisätään reilusti sisäistä ilmaa */
+  max-width: 800px;        /* Rajoitetaan maksimileveys, jotta teksti ei leviä liikaa */
+  margin: 2rem auto;       /* Keskittää laatikon sivusuunnassa ja lisää tilaa ylä- ja alapuolelle */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Lisätään pieni varjo korostamaan laatikkoa */
+}
+
+/* Kohdistetaan tyyli myös listasivujen pääalueeseen.
+   Tämä kattaa pelaajalistan, uutislistan (etusivu) jne. */
+.posts, 
+.pelaaja-lista,
+.mw8.center { /* Tämä on yleinen keskittävä luokka Anankessa */
+  background-color: rgba(255, 255, 255, 0.95); /* Hieman läpikuultava valkoinen, näyttää tyylikkäältä */
+  padding: 2rem;
+  border-radius: 5px; /* Pyöristetään kulmat kevyesti */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
