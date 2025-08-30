@@ -15,12 +15,13 @@ collections:
     fields:
       - {label: "Otsikko", name: "title", widget: "string"}
       - {label: "Julkaisupäivä", name: "date", widget: "datetime"}
-      - {label: "Leipäteksti", name: "body", widget: "markdown" 
-      editor_components:
-       - "code-block"
-       - "table"
-       - "youtube"
-       - "twitter"}
+      - label: "Leipäteksti"
+        name: "body"
+        widget: "markdown"
+        editor_components:
+          - "image"
+          - "table"
+          - "code-block"
 
   # KOKOELMA 2: Sivut
   - name: "pages"
@@ -32,7 +33,6 @@ collections:
         fields:
           - {label: "Otsikko", name: "title", widget: "string"}
           - {label: "Leipäteksti", name: "body", widget: "markdown"}
-      # Voit lisätä muita yksittäisiä sivuja tänne, esim. Yhteistyökumppanit
 
   # KOKOELMA 3: Pelaajat
   - name: "pelaajat"
@@ -74,7 +74,6 @@ collections:
           - "Salon Vilpas"
           - "Tampereen Pyrintö"
           - "Karhu Basket"
-          # Lisää loput Korisliigan joukkueet tähän
       - label: "Vierasjoukkue"
         name: "vierasjoukkue"
         widget: "select"
@@ -89,9 +88,6 @@ collections:
           - "Salon Vilpas"
           - "Tampereen Pyrintö"
           - "Karhu Basket"
-          # Lisää loput Korisliigan joukkueet tähän
       - {label: "Onko kotipeli?", name: "onko_kotipeli", widget: "boolean", default: true}
       - {label: "Pelipaikka", name: "pelipaikka", widget: "string"}
       - {label: "Lopputulos", name: "tulos", widget: "string", required: false, hint: "Täytetään ottelun jälkeen, esim. 98-92"}
-
-  # KOKOELMA 5: 
