@@ -55,8 +55,38 @@ collections:
     fields:
       - {label: "Ottelun päivämäärä", name: "paivamaara", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false}
       - {label: "Kellonaika", name: "kellonaika", widget: "string", hint: "Esim. 18:30"}
-      - {label: "Kotijoukkue", name: "kotijoukkue", widget: "string"}
-      - {label: "Vierasjoukkue", name: "vierasjoukkue", widget: "string"}
+      - label: "Kotijoukkue"
+        name: "kotijoukkue"
+        widget: "select"
+        options:
+          - "Kobrat"
+          - "Bisons Loimaa"
+          - "Helsinki Seagulls"
+          - "KTP-Basket"
+          - "Kataja Basket"
+          - "Korihait"
+          - "BC Nokia"
+          - "Salon Vilpas"
+          - "Tampereen Pyrintö"
+          - "Karhu Basket"
+          # Lisää loput Korisliigan joukkueet tähän
+      - label: "Vierasjoukkue"
+        name: "vierasjoukkue"
+        widget: "select"
+        options:
+          - "Kobrat"
+          - "Bisons Loimaa"
+          - "Helsinki Seagulls"
+          - "KTP-Basket"
+          - "Kataja Basket"
+          - "Korihait"
+          - "BC Nokia"
+          - "Salon Vilpas"
+          - "Tampereen Pyrintö"
+          - "Karhu Basket"
+          # Lisää loput Korisliigan joukkueet tähän
       - {label: "Onko kotipeli?", name: "onko_kotipeli", widget: "boolean", default: true}
       - {label: "Pelipaikka", name: "pelipaikka", widget: "string"}
       - {label: "Lopputulos", name: "tulos", widget: "string", required: false, hint: "Täytetään ottelun jälkeen, esim. 98-92"}
+
+  # KOKOELMA 5: 

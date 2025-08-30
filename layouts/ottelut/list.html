@@ -14,8 +14,17 @@
     {{ $tulevat := where $ottelut ".Params.paivamaara" "ge" $tanaan }}
     {{ range $tulevat.ByParam "paivamaara" }}
       <article class="ba b--black-10 mv3 pa3">
-        <p class="f6 b">{{ (time .Params.paivamaara).Format "Maanantai 2.1.2006" }} klo {{ .Params.kellonaika }}</p>        <h3 class="f3 mv1">{{ .Params.kotijoukkue }} – {{ .Params.vierasjoukkue }}</h3>
-        <p class="f5 gray mv1">{{ .Params.pelipaikka }}</p>
+        <p class="f6 b">{{ (time .Params.paivamaara).Format "Maanantai 2.1.2006" }} klo {{ .Params.kellonaika }}</p>
+
+        <!-- TÄMÄ ON UUSI OSA -->
+        <div class="flex items-center justify-between pv2">
+          {{ partial "joukkue_logo.html" (dict "joukkue" .Params.kotijoukkue "koko" "h3") }}
+          <span class="f2 mh3">–</span>
+          {{ partial "joukkue_logo.html" (dict "joukkue" .Params.vierasjoukkue "koko" "h3") }}
+        </div>
+        <!-- UUSI OSA PÄÄTTYY -->
+
+        <p class="f5 gray mv1 tc">{{ .Params.pelipaikka }}</p>
       </article>
     {{ else }}
       <p class="tc">Ei tulevia otteluita.</p>
@@ -29,8 +38,15 @@
     {{ range ($menneet.ByParam "paivamaara").Reverse }}
       <article class="ba b--black-10 mv3 pa3">
         <p class="f6">{{ (time .Params.paivamaara).Format "2.1.2006" }}</p>
-        <h3 class="f4 mv1">{{ .Params.kotijoukkue }} – {{ .Params.vierasjoukkue }}</h3>
-        <p class="f3 b mv1">{{ .Params.tulos }}</p>
+
+        <!-- TÄMÄ ON UUSI OSA MYÖS TÄÄLLÄ -->
+        <div class="flex items-center justify-between pv2">
+          {{ partial "joukkue_logo.html" (dict "joukkue" .Params.kotijoukkue "koko" "h3") }}
+          <span class="f4 mh3">{{ .Params.tulos }}</span>
+          {{ partial "joukkue_logo.html" (dict "joukkue" .Params.vierasjoukkue "koko" "h3") }}
+        </div>
+        <!-- UUSI OSA PÄÄTTYY -->
+
       </article>
     {{ else }}
       <p class="tc">Ei pelattuja otteluita.</p>

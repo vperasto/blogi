@@ -14,10 +14,13 @@
     <section class="w-100 bg-dark-blue white tc pa3 pa4-ns">
       <h2 class="f3 ttu tracked">Seuraava kotiottelu</h2>
       <p class="f2 b lh-title">{{ (time .Params.paivamaara).Format "la 2.1." }} klo {{ .Params.kellonaika }}</p>
-      <p class="f1 fw9 lh-solid">{{ .Params.kotijoukkue }}</p>
+      {{/* Kotijoukkue */}}
+      {{ partial "joukkue_logo.html" (dict "joukkue" .Params.kotijoukkue "koko" "h4") }}
+
       <p class="f3 lh-solid">vs.</p>
-      <p class="f1 fw9 lh-solid">{{ .Params.vierasjoukkue }}</p>
-      <a href="#" class="f4 link dim br-pill ph4 pv3 mb2 dib white bg-orange mt4">Osta liput</a>
+
+      {{/* Vierasjoukkue */}}
+      {{ partial "joukkue_logo.html" (dict "joukkue" .Params.vierasjoukkue "koko" "h4") }}<a href="#" class="f4 link dim br-pill ph4 pv3 mb2 dib white bg-orange mt4">Osta liput</a>
     </section>
   {{ end }}
 {{ else }}

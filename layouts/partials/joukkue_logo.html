@@ -1,0 +1,22 @@
+{{/* 
+  Tämä partial ottaa vastaan kaksi parametria:
+  .joukkue: Joukkueen nimi (esim. "Kobrat")
+  .koko:    Haluttu kuvan kokoluokka (esim. "h4" tai "h3")
+*/}}
+{{ $joukkue_nimi := .joukkue }}
+{{ $logo_koko := .koko | default "h3" }} {{/* Oletuskoko on h3, jos ei määritelty */}}
+
+{{/* Rakennetaan polku, jonka Hugo näkee */}}
+{{ $logo_url_polku := printf "/images/ottelulogot/%s.png" $joukkue_nimi }}
+
+{{/* Rakennetaan polku, jonka Hugo voi tarkistaa levyltä */}}
+{{ $logo_fyysinen_polku := printf "static%s" $logo_url_polku }}
+
+{{/* Tarkistetaan, onko tiedosto olemassa */}}
+{{ if fileExists $logo_fyysinen_polku }}
+  {{/* Jos on, näytetään kuva */}}
+  <img src="{{ $logo_url_polku | relURL }}" alt="{{ $joukkue_nimi }} logo" class="{{ $logo_koko }}">
+{{ else }}
+  {{/* Jos ei, näytetään nimi tekstinä. Käytetään samaa kokoluokkaa. */}}
+  <p class="{{ $logo_koko | replace "h" "f" }} fw6">{{ $joukkue_nimi }}</p>
+{{ end }}
