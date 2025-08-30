@@ -65,9 +65,15 @@
   <body class="ma0 {{ $.Param "body_classes"  | compare.Default "avenir bg-near-white"}} {{ $environment }}">
 
     {{ block "header" . }}{{ partials.Include "site-header.html" .}}{{ end }}
-    <main class="pb7" role="main">
-      {{ block "main" . }}{{ end }}
-    </main>
+    <div class="cf ph3 ph5-l">
+      <main class="fl w-100 w-70-l pa2" role="main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      
+      {{ block "sidebar" . }}
+        {{ partial "sidebar.html" . }}
+      {{ end }}
+    </div>
     {{ block "footer" . }}{{ partials.IncludeCached "site-footer.html" . }}{{ end }}
   </body>
 </html>
