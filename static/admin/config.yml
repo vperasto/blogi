@@ -15,7 +15,7 @@ collections:
     fields:
       - {label: "Otsikko", name: "title", widget: "string"}
       - {label: "Julkaisupäivä", name: "date", widget: "datetime"}
-      - {label: "Leipäteksti", name: "body", widget: "markdown"}
+      - {label: "Leipäteksti", name: "body", widget: "rich_text"}
 
   # KOKOELMA 2: Sivut
   - name: "pages"
@@ -26,7 +26,7 @@ collections:
         name: "tietoa_seurasta"
         fields:
           - {label: "Otsikko", name: "title", widget: "string"}
-          - {label: "Leipäteksti", name: "body", widget: "markdown"}
+          - {label: "Leipäteksti", name: "body", widget: "rich_text"}
       # Voit lisätä muita yksittäisiä sivuja tänne, esim. Yhteistyökumppanit
 
   # KOKOELMA 3: Pelaajat
@@ -44,7 +44,7 @@ collections:
       - {label: "Pituus", name: "pituus", widget: "string", required: false}
       - {label: "Pelaajan kuva", name: "kuva", widget: "image", required: false}
       - {label: "Kausi", name: "kausi", widget: "select", options: ["2024-2025", "2023-2024", "Entinen pelaaja"]}
-      - {label: "Esittelyteksti", name: "body", widget: "markdown"}
+      - {label: "Esittelyteksti", name: "body", widget: "rich_text"}
 
   # KOKOELMA 4: Ottelut
   - name: "ottelut"
