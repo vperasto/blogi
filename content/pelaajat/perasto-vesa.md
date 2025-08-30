@@ -1,11 +1,11 @@
 ---
-etunimi: Vesa
+etunimi: Topias
 sukunimi: Perasto
 pelinumero: 5
 pelipaikka: centteri
 syntymaaika: 1977-09-22
 pituus: "179"
-kuva: https://yt3.googleusercontent.com/ytc/AIdro_k0VKtcRCyslvKDu4v9Rf-2UmiXZEJME3i-YNWX0NbtxIoB=s900-c-k-c0x00ffffff-no-rj
+kuva: ""
 kausi: 2024-2025
 ---
 Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. 
