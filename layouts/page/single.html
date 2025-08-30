@@ -1,0 +1,21 @@
+{{ define "header" }}
+  {{ partials.Include "page-header.html" . }}
+{{ end }}
+
+{{ define "sidebar" }}
+{{ end }}
+
+{{ define "main" }}
+  <div class="center mw8 pa3 pa4-ns">
+    <article>
+      <header>
+        <h1 class="f1">
+          {{ .Title }}
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+        {{ .Content }}
+      </div>
+    </article>
+  </div>
+{{ end }}
