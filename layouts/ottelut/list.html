@@ -14,8 +14,7 @@
     {{ $tulevat := where $ottelut ".Params.paivamaara" "ge" $tanaan }}
     {{ range $tulevat.ByParam "paivamaara" }}
       <article class="ba b--black-10 mv3 pa3">
-        <p class="f6 b">{{ .Params.paivamaara.Format "Maanantai 2.1.2006" }} klo {{ .Params.kellonaika }}</p>
-        <h3 class="f3 mv1">{{ .Params.kotijoukkue }} – {{ .Params.vierasjoukkue }}</h3>
+        <p class="f6 b">{{ (time .Params.paivamaara).Format "Maanantai 2.1.2006" }} klo {{ .Params.kellonaika }}</p>        <h3 class="f3 mv1">{{ .Params.kotijoukkue }} – {{ .Params.vierasjoukkue }}</h3>
         <p class="f5 gray mv1">{{ .Params.pelipaikka }}</p>
       </article>
     {{ else }}
@@ -29,7 +28,7 @@
     {{ $menneet := where $ottelut ".Params.paivamaara" "lt" $tanaan }}
     {{ range ($menneet.ByParam "paivamaara").Reverse }}
       <article class="ba b--black-10 mv3 pa3">
-        <p class="f6">{{ .Params.paivamaara.Format "2.1.2006" }}</p>
+        <p class="f6">{{ (time .Params.paivamaara).Format "2.1.2006" }}</p>
         <h3 class="f4 mv1">{{ .Params.kotijoukkue }} – {{ .Params.vierasjoukkue }}</h3>
         <p class="f3 b mv1">{{ .Params.tulos }}</p>
       </article>

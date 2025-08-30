@@ -13,7 +13,7 @@
   {{ range $seuraava_ottelu }}
     <section class="w-100 bg-dark-blue white tc pa3 pa4-ns">
       <h2 class="f3 ttu tracked">Seuraava kotiottelu</h2>
-      <p class="f2 b lh-title">{{ .Params.paivamaara.Format "la 2.1." }} klo {{ .Params.kellonaika }}</p>
+      <p class="f2 b lh-title">{{ (time .Params.paivamaara).Format "la 2.1." }} klo {{ .Params.kellonaika }}</p>
       <p class="f1 fw9 lh-solid">{{ .Params.kotijoukkue }}</p>
       <p class="f3 lh-solid">vs.</p>
       <p class="f1 fw9 lh-solid">{{ .Params.vierasjoukkue }}</p>
